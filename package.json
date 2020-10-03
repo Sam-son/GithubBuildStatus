@@ -1,6 +1,6 @@
 {
   "name": "GithubBuildStatus",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "API for making build status shield based on github build status API",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Sam-son/GithubBuildStatus"
+    "url": "git://github.com/X-sam/GithubBuildStatus"
   },
   "keywords": [
     "github",
     "status"
   ],
-  "author": "Samson Bonfante",
+  "author": "Sam Bonfante",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Sam-son/GithubBuildStatus/issues"
