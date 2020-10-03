@@ -4,11 +4,11 @@ var request = require('superagent');
 var config = require('./config');
 var app = express();
 
-app.get('/',function(req,res){
+app.get('/',(req,res)=>{
 	res.status(404).send('');
 });
 
-function gethead(user,repo,branch,res,cb){
+const gethead = (user,repo,branch,res,cb)=>{
     if(branch==='master') return 'HEAD';
 	let url = 'https://api.github.com/repos/'+user+'/'+repo+'/branches/'+branch;
 	console.log("requesting "+url);
@@ -29,7 +29,7 @@ function gethead(user,repo,branch,res,cb){
         });
 };
 
-function getstatus(user,repo,hash,res){
+const getstatus = (user,repo,hash,res)=>{
     let url = 'https://api.github.com/repos/'+user+'/'+repo+'/commits/'+hash+'/status';
     console.log('requesting '+url);
     request
@@ -56,7 +56,7 @@ function getstatus(user,repo,hash,res){
         });
 }
 
-app.get('/api/:user/:repo/:branch/:commit?',function(req,res){
+app.get('/api/:user/:repo/:branch/:commit?',(req,res)=>{
     if(req.params.commit && req.params.commit !=='') {
     	console.log('commit: '+req.params.commit);
 	    getstatus(req.params.user,req.params.repo,req.params.commit,res);
@@ -65,6 +65,6 @@ app.get('/api/:user/:repo/:branch/:commit?',function(req,res){
     }
 });
 
-app.listen(8080,function(){
+app.listen(8080,()=>{
 	console.log('Live on port 8080');
 });
